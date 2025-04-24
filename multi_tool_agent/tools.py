@@ -1,12 +1,8 @@
 import os
 import requests
 import logging
-from dotenv import load_dotenv
 from google.adk.tools.tool_context import ToolContext
-
-load_dotenv() # Load .env file to get API key
-
-WEATHER_API_KEY = os.environ.get("WEATHER_API_KEY")
+from .config import WEATHER_API_KEY 
 
 def get_weather(city: str, tool_context: ToolContext) -> dict:
     """Retrieves the current weather report for a specified city using WeatherAPI.com."""

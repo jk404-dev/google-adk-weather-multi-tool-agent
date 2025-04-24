@@ -1,16 +1,17 @@
 import os
 import logging
-from dotenv import load_dotenv
+# from dotenv import load_dotenv # Removed
 from google.adk.agents import Agent
 from .tools import get_weather, say_hello, say_goodbye # Relative imports
 from .guardrails import block_keyword_guardrail # Relative import
+from .config import AGENT_MODEL_NAME # Import from config
 
-load_dotenv()
+# load_dotenv() # Removed
 
-# Get Model Name (used by all agents defined here)
-AGENT_MODEL_NAME = os.environ.get("MODEL_GEMINI_2_0_FLASH", "gemini-1.5-flash-latest")
-if not os.environ.get("MODEL_GEMINI_2_0_FLASH"):
-    logging.warning(f"Warning: MODEL_GEMINI_2_0_FLASH env var not set in agents.py. Defaulting to '{AGENT_MODEL_NAME}'")
+# Get Model Name (used by all agents defined here) # Removed
+# AGENT_MODEL_NAME = os.environ.get("MODEL_GEMINI_2_0_FLASH", "gemini-1.5-flash-latest") # Removed
+# if not os.environ.get("MODEL_GEMINI_2_0_FLASH"): # Removed
+#     logging.warning(f"Warning: MODEL_GEMINI_2_0_FLASH env var not set in agents.py. Defaulting to '{AGENT_MODEL_NAME}'") # Removed
 
 # --- Sub Agents --- #
 

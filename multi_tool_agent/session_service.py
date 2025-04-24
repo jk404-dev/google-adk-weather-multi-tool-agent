@@ -1,18 +1,11 @@
 from google.adk.sessions import InMemorySessionService
-
-# Define constants for identifying the interaction context
-APP_NAME = "weather_tutorial_app"
-USER_ID = "user_1" # Example User ID (consider making dynamic)
-SESSION_ID = "session_001" # Example Session ID (consider making dynamic)
-
-# Define constants for the stateful session
-USER_ID_STATEFUL = "user_state_demo"
-SESSION_ID_STATEFUL = "session_state_demo_001"
-
-initial_state = {
-    "user_preference_temperature_unit": "Celsius"
-}
-
+# Import constants from config
+from .config import (
+    APP_NAME,
+    USER_ID_STATEFUL,
+    SESSION_ID_STATEFUL,
+    initial_state
+)
 # Create the stateful session service instance
 session_service_stateful = InMemorySessionService()
 

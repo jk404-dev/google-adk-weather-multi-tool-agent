@@ -1,9 +1,5 @@
-import os
 import asyncio
-import sys
 import logging
-from dotenv import load_dotenv
-
 from google.adk.runners import Runner
 from google.genai import types
 
@@ -11,18 +7,10 @@ from google.genai import types
 from .session_service import session_service_stateful, APP_NAME, USER_ID_STATEFUL, SESSION_ID_STATEFUL
 from .agents import root_agent # Import the main agent
 
-load_dotenv()
 import warnings
 warnings.filterwarnings("ignore")
 
 logging.basicConfig(level=logging.INFO)
-
-# Load and check necessary environment variables for the main script
-GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY")
-if not GOOGLE_API_KEY:
-    print("Error: GOOGLE_API_KEY environment variable not set.")
-    sys.exit(1)
-
 # --- Runner Definition --- #
 runner = None
 if root_agent and session_service_stateful:
